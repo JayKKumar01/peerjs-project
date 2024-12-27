@@ -39,11 +39,19 @@ function handleIncomingMessages(connection) {
 // Function to initialize the peer connection
 function initializePeer() {
     fullPeerId = generatePeerId(); // Generate custom peer ID
+    // const peer = new Peer(fullPeerId, {
+    //     host: 'localhost',
+    //     port: 3000,
+    //     path: '/peerjs'
+    // });
     const peer = new Peer(fullPeerId, {
-        host: 'localhost',
-        port: 3000,
-        path: '/peerjs'
+        host: 'peerjs-project.onrender.com', // Use your Render app’s domain
+        port: 443,                          // Use 443 for secure connections (HTTPS)
+        secure: true,                        // Ensure connection is secure over HTTPS
+        path: '/peerjs'                      // Ensure the path matches the one you used on the server
     });
+    
+    
 
     peer.on('open', () => {
         peerIdDisplay.textContent = fullPeerId.split('-').pop(); // Display only the 6-digit number
