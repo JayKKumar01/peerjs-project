@@ -21,6 +21,10 @@ const peerServer = PeerServer({
     listen: '0.0.0.0'
 });
 
+// Integrate PeerServer with the Express app
+app.use('/peerjs', peerServer);
+
+// Ensure the server is running
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
