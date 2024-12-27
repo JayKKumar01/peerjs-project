@@ -16,11 +16,11 @@ const peerServer = PeerServer({
     port: PORT,                   // Use dynamic port provided by Render
     path: '/peerjs',               // Path used by the PeerJS client
     secure: true,                  // Use secure (https) connections
-    host: 'peerjs-project.onrender.com',  // Use the Render domain (it will be the public URL)
-    // if needed, you can use 'withCredentials' and other parameters here
+    host: 'peerjs-project.onrender.com',  // Render public URL (adjust if using custom domain)
+    // Bind to all IP addresses (0.0.0.0)
+    listen: '0.0.0.0'
 });
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
-
